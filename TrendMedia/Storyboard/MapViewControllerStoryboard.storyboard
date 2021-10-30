@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" id="Y6W-OH-hqX" customClass="MapViewController" customModule="TrendMedia" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rgK-UF-bZZ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1e-uz-cMV">
+                                <rect key="frame" x="350" y="64" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="Dpd-qq-IwT"/>
+                                    <constraint firstAttribute="height" constant="44" id="gPF-Zo-YZe"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="arrow.clockwise" catalog="system"/>
+                                <connections>
+                                    <action selector="refreshButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="HNL-pq-CTl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="D1e-uz-cMV" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="9EH-rZ-HBV"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="rgK-UF-bZZ" secondAttribute="trailing" id="ByV-X6-qV0"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="rgK-UF-bZZ" secondAttribute="bottom" id="Czg-bC-KBw"/>
+                            <constraint firstItem="rgK-UF-bZZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="QJ3-Rl-nBm"/>
+                            <constraint firstItem="rgK-UF-bZZ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Ybq-w3-Fdw"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="D1e-uz-cMV" secondAttribute="trailing" constant="20" id="nSq-9E-cgm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapKitView" destination="rgK-UF-bZZ" id="zRW-AW-MOR"/>
+                        <outlet property="refreshButton" destination="D1e-uz-cMV" id="N4J-dr-aWP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="46" y="56"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

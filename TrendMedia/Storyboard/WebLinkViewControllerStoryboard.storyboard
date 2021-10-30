@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Web Link View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="WebLinkViewController" id="Y6W-OH-hqX" customClass="WebLinkViewController" customModule="TrendMedia" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9X-FS-Sru">
+                                <rect key="frame" x="20" y="59" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PRG-l0-qs7">
+                                <rect key="frame" x="0.0" y="90" width="414" height="723"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c8K-vx-rhq">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="m8a-3b-gop"/>
+                                    <barButtonItem image="chevron.left" catalog="system" id="A9x-Nk-Jum">
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="goBack:" destination="Y6W-OH-hqX" id="AsZ-5z-LXw"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="RS8-fP-8Qw"/>
+                                    <barButtonItem image="chevron.right" catalog="system" id="rQE-Yx-1Y0">
+                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="goForward:" destination="Y6W-OH-hqX" id="rVE-JE-6qp"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Nyk-WV-adG"/>
+                                    <barButtonItem image="arrow.counterclockwise" catalog="system" id="6nF-3p-lC9">
+                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="reloadPage:" destination="Y6W-OH-hqX" id="dfC-TR-8d9"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="euk-Lw-LLI"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="c8K-vx-rhq" secondAttribute="trailing" id="0Z8-I5-b37"/>
+                            <constraint firstItem="c8K-vx-rhq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Cqn-oe-wcC"/>
+                            <constraint firstItem="PRG-l0-qs7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="HVx-d7-k96"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="K9X-FS-Sru" secondAttribute="trailing" constant="20" id="KfZ-Ja-GI9"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="c8K-vx-rhq" secondAttribute="bottom" id="PPr-2V-xgN"/>
+                            <constraint firstItem="PRG-l0-qs7" firstAttribute="top" secondItem="K9X-FS-Sru" secondAttribute="bottom" constant="10" id="Sp7-87-JzK"/>
+                            <constraint firstItem="K9X-FS-Sru" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="15" id="oza-GI-nFR"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PRG-l0-qs7" secondAttribute="trailing" id="u3e-Ra-3Nn"/>
+                            <constraint firstItem="c8K-vx-rhq" firstAttribute="top" secondItem="PRG-l0-qs7" secondAttribute="bottom" id="uHQ-23-J4K"/>
+                            <constraint firstItem="K9X-FS-Sru" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="yMS-uU-gnZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="PRG-l0-qs7" id="Bet-7m-dbh"/>
+                        <outlet property="webViewTitle" destination="K9X-FS-Sru" id="7Cd-Dt-e1C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="44.927536231884062" y="55.580357142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.counterclockwise" catalog="system" width="115" height="128"/>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
