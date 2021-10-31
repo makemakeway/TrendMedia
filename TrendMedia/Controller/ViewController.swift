@@ -8,9 +8,11 @@
 import UIKit
 import SwiftyJSON
 import Kingfisher
+import Network
 
 class ViewController: UIViewController {
     
+    //MARK: Property
     
     var currentPage = 1
     
@@ -18,8 +20,13 @@ class ViewController: UIViewController {
     var genres: [Int:String] = [:]
     var videoKey = ""
     var totalResult = 0
+    var filmButtonPushed: Bool = false
+    var dramaButtonPushed: Bool = false
+    var bookButtonPushed: Bool = false
 
-    //MARK: Property
+    
+    let networkMonitor = NWPathMonitor()
+    
     lazy var searchButton: UIBarButtonItem = {
         let button = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(searchButtonClicked(_:)))
         button.tintColor = UIColor.darkGray
@@ -43,16 +50,10 @@ class ViewController: UIViewController {
     }()
     
     @IBOutlet weak var headerStackView: UIStackView!
-    
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var filmButton: UIButton!
     @IBOutlet weak var dramaButton: UIButton!
     @IBOutlet weak var bookButton: UIButton!
-    
-    var filmButtonPushed: Bool = false
-    var dramaButtonPushed: Bool = false
-    var bookButtonPushed: Bool = false
     
     
     
@@ -178,7 +179,39 @@ class ViewController: UIViewController {
         
     }
     
+    func makeAlert(title: String?, message: String?, buttonTitle1: String?, buttonTitle2: String?, completion: @escaping ()->()) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: buttonTitle1, style: .default) { _ in
+            completion()
+        }
+        let cancelButton = UIAlertAction(title: buttonTitle2, style: .default, handler: nil)
+        
+        alert.addAction(cancelButton)
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
+    }
     
+    func checkNetworkStatus() {
+        networkMonitor.start(queue: DispatchQueue.global())
+        networkMonitor.pathUpdateHandler = { [weak self] path in
+            switch path.status {
+            case .satisfied:
+                print("연결되어있음")
+            case .requiresConnection, .unsatisfied:
+                print("연결되어있지않음")
+                self?.makeAlert(title: "오류", message: "네트워크에 연결되어 있지 않습니다. 네트워크 상태를 확인해주세요.", buttonTitle1: "확인", buttonTitle2: nil) {
+                    self?.networkMonitor.cancel()
+                }
+                
+            @unknown default:
+                print("@unknown")
+            }
+            
+            if path.usesInterfaceType(.cellular) {
+                print("데이터 사용")
+            }
+        }
+    }
     
     //MARK: Objc func
     
@@ -202,6 +235,14 @@ class ViewController: UIViewController {
         print("link Button clicked")
     }
     
+    @objc func similarContentsViewTapped(_ gesture: CustomGesture) {
+        let sb = UIStoryboard.init(name: "SimilarContentsViewControllerStoryboard", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "SimilarContentsViewController") as! SimilarContentsViewController
+        vc.id = gesture.id!
+        vc.mediaType = gesture.mediaType!
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     
     
@@ -212,18 +253,25 @@ class ViewController: UIViewController {
         addData()
         self.navigationItem.rightBarButtonItem = searchButton
         self.navigationItem.setLeftBarButtonItems([mapButton], animated: true)
+        searchButton.tintColor = .lightGray
+        mapButton.tintColor = .lightGray
         headerStackViewConfig()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.prefetchDataSource = self
+        
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        super.viewWillAppear(animated)
+//        checkNetworkStatus()
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+//        networkMonitor.cancel()
     }
 }
 
@@ -287,6 +335,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         border.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin]
         border.frame = CGRect(x: 0, y: 0, width: cell.footerView.frame.width - 2, height: 1)
         cell.footerView.addSubview(border)
+        
+        let gesture = CustomGesture(target: self, action: #selector(self.similarContentsViewTapped(_:)))
+        gesture.id = movieData.id
+        gesture.mediaType = movieData.media_type
+        gesture.index = indexPath.row
+        cell.footerView.addGestureRecognizer(gesture)
         
         cell.linkButtonDelegate = self
         cell.linkButton.layer.cornerRadius = cell.linkButton.frame.size.width / 2
@@ -360,3 +414,4 @@ extension ViewController: LinkButtonDelegate {
         self.present(vc, animated: true, completion: nil)
     }
 }
+
