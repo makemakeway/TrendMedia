@@ -11,8 +11,6 @@ class SimilarContentsCollectionViewCell: UICollectionViewCell {
 
     static let identifier = "SimilarContentsCollectionViewCell"
     
-    var delegate: SimilarContentsViewDelegate?
-    
     //MARK: UI
     
     @IBOutlet weak var posterImage: UIImageView!
@@ -27,5 +25,12 @@ class SimilarContentsCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.genresLabel.text = ""
+    }
+    
 
 }

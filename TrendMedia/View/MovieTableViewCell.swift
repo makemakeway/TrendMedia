@@ -33,13 +33,7 @@ class MovieTableViewCell: UITableViewCell {
     
     var linkButtonDelegate: LinkButtonDelegate?
     
-    var similarViewDelegate: SimilarContentsViewDelegate?
-    
     var index: Int = 0
-    
-    var category: String = ""
-    
-    var id: Int = 0
     
     //MARK: Method
     
@@ -47,13 +41,6 @@ class MovieTableViewCell: UITableViewCell {
         
         if let delegate = linkButtonDelegate {
             delegate.linkButtonClicked(index: index)
-        }
-    }
-    
-    @objc func similarViewClicked() {
-        
-        if let delegate = similarViewDelegate {
-            delegate.similarContentsViewClicked(category: category, id: id, index: index)
         }
     }
     

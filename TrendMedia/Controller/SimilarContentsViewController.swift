@@ -23,8 +23,9 @@ class SimilarContentsViewController: UIViewController {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: self.view.frame.size.width - 20, height: self.view.frame.size.height / 0.5)
         layout.minimumInteritemSpacing = 10
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        layout.itemSize = CGSize(width: self.view.frame.size.width - 20, height: self.collectionView.frame.size.height * 0.6)
         layout.scrollDirection = .horizontal
         
         self.collectionView.collectionViewLayout = layout
@@ -39,7 +40,6 @@ class SimilarContentsViewController: UIViewController {
                 self.genres.updateValue(name, forKey: id)
             })
         }
-        print(genres)
     }
     
     func fetchMovies() {
@@ -60,7 +60,9 @@ class SimilarContentsViewController: UIViewController {
                                        original_name: $0["original_name"].stringValue)
                 self.movies.append(movie)
             })
-            print(self.movies)
+            DispatchQueue.main.async { [weak self] in
+                self?.collectionView.reloadData()
+            }
         }
     }
     
@@ -98,18 +100,19 @@ extension SimilarContentsViewController: UICollectionViewDelegate, UICollectionV
         let data = movies[indexPath.row]
 
         cell.backgroundColor = .white
-//        data.genre_ids.forEach({
-//            cell.genresLabel.text! += "#\(genres[$0]!) "
-//        })
-//
-//        switch mediaType {
-//        case "tv":
-//            cell.titleLabel.text = data.name!
-//        case "movie":
-//            cell.titleLabel.text = data.title!
-//        default:
-//            print("error")
-//        }
+        cell.genresLabel.text = ""
+        data.genre_ids.forEach({
+            cell.genresLabel.text! += "#\(genres[$0]!) "
+        })
+
+        switch mediaType {
+        case "tv":
+            cell.titleLabel.text = data.name!
+        case "movie":
+            cell.titleLabel.text = data.title!
+        default:
+            print("error")
+        }
         
         let urlString = EndPoint.MEDIA_IMAGE_URL + (data.poster_path)
         cell.posterImage.kf.setImage(with: URL(string: urlString), placeholder: UIImage(systemName: "star"))

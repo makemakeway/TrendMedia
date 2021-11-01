@@ -23,7 +23,6 @@
 		FF9C91E4272941DA007D96BF /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C91E3272941DA007D96BF /* API.swift */; };
 		FF9C91E6272957A7007D96BF /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C91E5272957A7007D96BF /* MovieModel.swift */; };
 		FF9C91F0272E9071007D96BF /* NetworkStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C91EF272E9071007D96BF /* NetworkStatusManager.swift */; };
-		FF9C91F2272EB526007D96BF /* SimilarContentsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C91F1272EB525007D96BF /* SimilarContentsViewDelegate.swift */; };
 		FF9C91F4272EB901007D96BF /* SimilarContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C91F3272EB901007D96BF /* SimilarContentsViewController.swift */; };
 		FF9C91F6272EB9A7007D96BF /* SimilarContentsViewControllerStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF9C91F5272EB9A7007D96BF /* SimilarContentsViewControllerStoryboard.storyboard */; };
 		FF9C91F9272EBDFB007D96BF /* SimilarContentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9C91F7272EBDFB007D96BF /* SimilarContentsCollectionViewCell.swift */; };
@@ -65,7 +64,6 @@
 		FF9C91E3272941DA007D96BF /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		FF9C91E5272957A7007D96BF /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		FF9C91EF272E9071007D96BF /* NetworkStatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusManager.swift; sourceTree = "<group>"; };
-		FF9C91F1272EB525007D96BF /* SimilarContentsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarContentsViewDelegate.swift; sourceTree = "<group>"; };
 		FF9C91F3272EB901007D96BF /* SimilarContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarContentsViewController.swift; sourceTree = "<group>"; };
 		FF9C91F5272EB9A7007D96BF /* SimilarContentsViewControllerStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SimilarContentsViewControllerStoryboard.storyboard; sourceTree = "<group>"; };
 		FF9C91F7272EBDFB007D96BF /* SimilarContentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarContentsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -229,7 +227,6 @@
 			children = (
 				FFCE20BF271D4EF100E816F2 /* LinkButtonDelegate.swift */,
 				FF3B2477271EAA2E007F4AE1 /* SpreadButtonDelegate.swift */,
-				FF9C91F1272EB525007D96BF /* SimilarContentsViewDelegate.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -346,7 +343,6 @@
 				FF3B2475271EA232007F4AE1 /* StoryTableViewCell.swift in Sources */,
 				FFCE20B22719DE1100E816F2 /* MovieDetailTableViewCell.swift in Sources */,
 				FF9C91E4272941DA007D96BF /* API.swift in Sources */,
-				FF9C91F2272EB526007D96BF /* SimilarContentsViewDelegate.swift in Sources */,
 				FF3B2478271EAA2E007F4AE1 /* SpreadButtonDelegate.swift in Sources */,
 				FF3B247F271EBE68007F4AE1 /* BooksCollectionViewCell.swift in Sources */,
 				FF9C91E6272957A7007D96BF /* MovieModel.swift in Sources */,

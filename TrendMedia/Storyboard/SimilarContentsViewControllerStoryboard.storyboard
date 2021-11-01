@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KRC-mu-mKu">
-                                <rect key="frame" x="0.0" y="64" width="414" height="448"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WhO-ex-DK8">
                                     <size key="itemSize" width="128" height="128"/>
@@ -43,7 +43,7 @@
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="KRC-mu-mKu" secondAttribute="trailing" id="LrM-zh-ZSl"/>
                             <constraint firstItem="KRC-mu-mKu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="Vfp-Qs-9lt"/>
-                            <constraint firstItem="KRC-mu-mKu" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.5" id="Zvz-KP-BzP"/>
+                            <constraint firstItem="KRC-mu-mKu" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.75" id="Zvz-KP-BzP"/>
                             <constraint firstItem="KRC-mu-mKu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="m6o-F1-ZgP"/>
                         </constraints>
                     </view>
