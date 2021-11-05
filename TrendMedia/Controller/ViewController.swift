@@ -332,8 +332,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         let border = UIView()
         border.backgroundColor = .label
-        border.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin]
-        border.frame = CGRect(x: 0, y: 0, width: cell.footerView.frame.width - 2, height: 1)
+        border.autoresizingMask = [.flexibleWidth]
+        border.frame = CGRect(x: 20, y: 0, width: cell.footerView.frame.width - 40, height: 1)
         cell.footerView.addSubview(border)
         
         let gesture = CustomGesture(target: self, action: #selector(self.similarContentsViewTapped(_:)))
