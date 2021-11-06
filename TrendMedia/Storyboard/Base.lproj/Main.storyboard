@@ -58,7 +58,7 @@
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hf4-LJ-dUw">
+                                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hf4-LJ-dUw">
                                                             <rect key="frame" x="0.0" y="377.5" width="334" height="40"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="비슷한 컨텐츠 보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElK-Ku-tDy">
@@ -74,9 +74,9 @@
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="tzI-hc-4rX" secondAttribute="trailing" constant="20" id="2WU-ZE-9gD"/>
                                                                 <constraint firstItem="ElK-Ku-tDy" firstAttribute="leading" secondItem="Hf4-LJ-dUw" secondAttribute="leading" constant="20" id="6OQ-6j-Ejz"/>
                                                                 <constraint firstItem="ElK-Ku-tDy" firstAttribute="centerY" secondItem="Hf4-LJ-dUw" secondAttribute="centerY" id="ESe-2n-2eF"/>
-                                                                <constraint firstAttribute="trailing" secondItem="tzI-hc-4rX" secondAttribute="trailing" constant="20" id="M2W-aN-z2A"/>
                                                                 <constraint firstItem="tzI-hc-4rX" firstAttribute="height" secondItem="Hf4-LJ-dUw" secondAttribute="height" multiplier="0.75" id="gIz-Ne-vpb"/>
                                                                 <constraint firstAttribute="height" constant="40" id="hde-Q7-qLQ"/>
                                                                 <constraint firstItem="tzI-hc-4rX" firstAttribute="centerY" secondItem="Hf4-LJ-dUw" secondAttribute="centerY" id="vjJ-NV-Rge"/>
@@ -102,10 +102,12 @@
                                                             </subviews>
                                                         </stackView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8i-Sf-rQn">
-                                                            <rect key="frame" x="286.5" y="15" width="32.5" height="32.5"/>
+                                                            <rect key="frame" x="279" y="15" width="40" height="40"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
+                                                                <constraint firstAttribute="height" constant="40" id="4Db-rg-Rh1"/>
                                                                 <constraint firstAttribute="width" secondItem="P8i-Sf-rQn" secondAttribute="height" multiplier="1:1" id="Coj-3Q-k5r"/>
+                                                                <constraint firstAttribute="width" constant="40" id="LEs-WS-I2m"/>
                                                             </constraints>
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <state key="normal" title="Button"/>
@@ -125,7 +127,6 @@
                                                         <constraint firstItem="86V-gv-YG5" firstAttribute="top" secondItem="UeA-aq-6l3" secondAttribute="bottom" constant="-30" id="DbG-4g-a5a"/>
                                                         <constraint firstAttribute="bottom" secondItem="Hf4-LJ-dUw" secondAttribute="bottom" id="Dpw-IC-bUb"/>
                                                         <constraint firstItem="jyK-de-NU4" firstAttribute="top" secondItem="faO-pK-GS3" secondAttribute="bottom" constant="7.5" id="GgW-1a-19y"/>
-                                                        <constraint firstItem="P8i-Sf-rQn" firstAttribute="height" secondItem="UeA-aq-6l3" secondAttribute="height" multiplier="0.13" id="GkT-AT-OZ3"/>
                                                         <constraint firstItem="faO-pK-GS3" firstAttribute="leading" secondItem="5r1-kC-5wa" secondAttribute="leading" constant="20" id="Gpq-jc-RqH"/>
                                                         <constraint firstItem="UeA-aq-6l3" firstAttribute="leading" secondItem="5r1-kC-5wa" secondAttribute="leading" id="IzF-fZ-KFQ"/>
                                                         <constraint firstAttribute="trailing" secondItem="P8i-Sf-rQn" secondAttribute="trailing" constant="15" id="Lqr-O1-i05"/>

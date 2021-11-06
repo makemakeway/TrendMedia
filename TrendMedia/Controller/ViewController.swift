@@ -273,6 +273,7 @@ class ViewController: UIViewController {
         super.viewWillDisappear(animated)
 //        networkMonitor.cancel()
     }
+    
 }
 
 //MARK: Extension
@@ -287,15 +288,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
+        cell.containerView.layer.cornerRadius = 10
+        
         cell.containerView.layer.shadowOffset = CGSize.zero
         cell.containerView.layer.shadowColor = UIColor.label.cgColor
         cell.containerView.layer.shadowOpacity = 0.5
         cell.containerView.layer.shadowRadius = 5
-        cell.containerView.layer.cornerRadius = 10
-        
         
         cell.posterImage.layer.cornerRadius = 10
         cell.posterImage.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        
+        cell.footerView.layer.cornerRadius = 10
         
         let movieData = mediaData[indexPath.row]
         let urlString = EndPoint.MEDIA_IMAGE_URL + (movieData.poster_path)
@@ -343,8 +346,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.footerView.addGestureRecognizer(gesture)
         
         cell.linkButtonDelegate = self
-        cell.linkButton.layer.cornerRadius = cell.linkButton.frame.size.width / 2
+        
+        let linkRadius = cell.linkButton.frame.size.width / 2
+        cell.linkButton.layer.cornerRadius = linkRadius
         cell.index = indexPath.row
+        
+        self.view.layoutIfNeeded()
         
         
         cell.selectionStyle = .none
